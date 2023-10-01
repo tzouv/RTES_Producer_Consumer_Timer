@@ -1,0 +1,33 @@
+% This script created to plot the simulation data for ms timer
+
+% Author: Tzouvaras Evangelos
+% Email: tzouevan@ece.auth.gr
+
+%% Load the data from .txt file
+periods = load('Periods_measurement_10ms.txt')/1000;
+execution_times = load('Execution_times_10ms.txt')/1000;
+drift_errors = load('Drift_error_10ms.txt')/1000;
+
+%% Plot data period
+for i=1:length(periods)
+    num_iterations(i) = i;
+end
+
+figure;
+stem(num_iterations, periods);
+xlabel('# of Iteration'); 
+ylabel('Period (ms)');
+ylim([0 100]);
+title('Timer actual periods for 10ms timer');
+
+%% Plot execution times
+figure;
+stem(num_iterations, execution_times);
+xlabel('# of Iteration'); 
+ylabel('Execution Time (ms)');
+ylim([0 100]);
+title('Execution time for 10ms timers');
+
+
+
+
